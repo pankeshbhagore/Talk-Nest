@@ -1,0 +1,186 @@
+.authContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.authLeft {
+  flex: 7;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+.authLeft::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); 
+  z-index: 1;
+  border-radius: 1rem;
+}
+
+.authRight {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+}
+
+.authPaper {
+  padding: 50px 35px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+.authPaper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 35px 60px rgba(0,0,0,0.6);
+}
+
+.authAvatar {
+  background: linear-gradient(135deg, #ff6ec7, #ff1c68);
+  margin: 0 auto;
+  width: 70px;
+  height: 70px;
+  box-shadow: 0 5px 20px rgba(255,28,104,0.5);
+  transition: all 0.3s ease;
+}
+.authAvatar:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.authTitle {
+  font-weight: 800;
+  font-size: 1.8rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-shadow: 1px 2px 10px rgba(0,0,0,0.5);
+}
+
+.authToggleButtons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 30px 0;
+}
+.authToggleButtons button {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 7px;
+  color: #fff;
+  border-color: #fff;
+  border-radius: 10px;
+  padding: 6px 18px;
+  transition: all 0.3s ease;
+}
+.authToggleButtons button.MuiButton-contained {
+  background: #ff1c68;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(255,28,104,0.4);
+}
+.authToggleButtons button.MuiButton-contained:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(255,28,104,0.5);
+}
+
+/* TextField Styling Fix */
+.authTextField {
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+.authTextField input {
+  color: #fff !important;
+  padding: 14px 12px;
+  background: transparent !important;
+}
+
+/* Floating Label Fix */
+.authTextField label {
+  color: rgba(255,255,255,0.7) !important;
+  font-weight: 500;
+  transition: all 0.3s ease !important;
+}
+.authTextField .Mui-focused label,
+.authTextField label.Mui-focused {
+  color: #ff6ec7 !important;
+  transform: translate(14px, -10px) scale(0.85) !important;
+  background: transparent;
+  padding: 0 4px;
+}
+
+.authTextField:hover {
+  background: rgba(255,255,255,0.1);
+}
+.authTextField input:focus {
+  border-bottom: 2px solid #ff1c68 !important;
+}
+
+.authError {
+  color: #ffeb3b;
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.authButton {
+  margin-top: 25px;
+  background: linear-gradient(135deg, #ff6ec7, #ff1c68);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 15px;
+  text-transform: uppercase;
+  padding: 12px 0;
+  font-size: 1rem;
+  box-shadow: 0 8px 25px rgba(255,28,104,0.4);
+  transition: all 0.4s ease;
+}
+.authButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255,28,104,0.6);
+}
+
+.authPaper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), transparent 70%);
+  animation: rotateBG 12s linear infinite;
+  border-radius: 50%;
+  z-index: 0;
+}
+@keyframes rotateBG {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+

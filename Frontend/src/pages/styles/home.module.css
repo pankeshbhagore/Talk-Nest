@@ -1,0 +1,101 @@
+:root {
+  --primary: #6a11cb;
+  --secondary: #2575fc;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.brand h2 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.navActions button, .navActions .MuiIconButton-root {
+  margin-left: 15px;
+}
+
+.meetContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  min-height: calc(100vh - 70px);
+}
+
+.leftPanel {
+  flex: 1;
+  min-width: 350px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.rightPanel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 350px;
+}
+
+.rightPanel img {
+  max-width: 80%;
+  border-radius: 20px;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.meetingInput {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.recentMeetings {
+  margin-top: 30px;
+}
+
+.recentMeetings ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recentItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recentItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+

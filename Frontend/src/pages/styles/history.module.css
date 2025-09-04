@@ -1,0 +1,177 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f0c29, #8883c4, #7575cf);
+  --card-bg: rgba(20, 20, 40, 0.7);
+  --card-hover: rgba(50, 50, 80, 0.9);
+  --primary-color: #dee5e5;
+  --secondary-color: #ff5e00;
+  --accent-color: #8a776e;
+  --text-light: #f9e12c;
+  --text-muted: #af9898;
+  --shadow-color: rgba(17, 16, 16, 0.5);
+}
+
+.historyContainer {
+  padding: 30px;
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-light);
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.searchBox {
+  flex: 1;
+  min-width: 200px;
+}
+
+.searchBox input {
+  color: var(--text-light);
+}
+
+.MuiOutlinedInput-root {
+  background: rgba(223, 226, 232, 0.1);
+  border-radius: 12px;
+  fieldset {
+    border-color: rgba(231, 221, 221, 0.2);
+  }
+  &:hover fieldset {
+    border-color: var(--primary-color);
+  }
+}
+
+.creatorFilter {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  min-width: 150px;
+  padding: 4px 8px;
+}
+
+.creatorFilter select {
+  color: #fff;
+}
+
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.historyCard {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  border: 2px solid transparent;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px var(--shadow-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.historyCard:hover {
+  background: var(--card-hover);
+  border-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color)) 1;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 30px var(--shadow-color), 0 0 15px var(--primary-color);
+}
+
+.currentUserMeeting {
+  border: 2px solid #050707 !important;
+  box-shadow: 0 0 20px #013604 !important;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.meetingCode {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  text-shadow: 0 0 8px var(--primary-color);
+}
+
+.meetingDate, .meetingDuration, .meetingOwner {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.MuiIconButton-root {
+  transition: all 0.2s ease-in-out;
+}
+
+.MuiIconButton-root:hover {
+  transform: scale(1.2);
+  color: var(--secondary-color);
+  text-shadow: 0 0 10px var(--secondary-color);
+}
+
+.topBar Button {
+  background: var(--primary-color);
+  color: #000;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.topBar Button:hover {
+  background: var(--secondary-color);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--secondary-color);
+}
+
+.noHistory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.loadMoreBtn {
+  margin: 20px auto;
+  display: block;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: #000;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+}
+
+.loadMoreBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--secondary-color);
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .cardsWrapper {
+    grid-template-columns: 1fr;
+  }
+  .topBar {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+
