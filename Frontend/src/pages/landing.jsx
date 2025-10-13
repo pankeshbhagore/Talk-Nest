@@ -48,7 +48,7 @@ export default function LandingPage() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link to="/auth">🚀 Get Started</Link>
+            <Link to="/auth">Get Started</Link>
           </motion.div>
         </motion.div>
 
@@ -71,7 +71,7 @@ export default function LandingPage() {
             />
           </AnimatePresence>
           <button onClick={refreshImage} className="refreshBtn">
-            🔄 Refresh Image
+             Refresh Image
           </button>
         </motion.div>
       </div>

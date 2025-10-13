@@ -22,8 +22,9 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Rnd } from "react-rnd";
 import styles from "./styles/videoComponent.module.css";
+import server from "../environment";
 
-const server_url = "http://localhost:8000";
+const server_url = server;
 var connections = {};
 const peerConfigConnections = { "iceServers": [{ "urls": "stun:stun.l.google.com:19302" }] };
 
