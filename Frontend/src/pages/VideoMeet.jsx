@@ -22,7 +22,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Rnd } from "react-rnd";
 import styles from "./styles/videoComponent.module.css";
-import server from "../environment";
+import server from "../../environment";
 
 const server_url = server;
 var connections = {};
