@@ -1,4 +1,4 @@
-/* Background with overlay */
+/* Base Layout */
 .landingPageContainer {
   width: 100vw;
   height: 100vh;
@@ -7,12 +7,13 @@
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* Glassy Navbar */
 .glassNav {
-  padding: 1.6rem 2rem;
+  padding: 1.2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,6 +34,8 @@
   gap: 2rem;
   cursor: pointer;
   font-size: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .glassNav .navlist p,
@@ -46,14 +49,15 @@
   transform: translateY(-3px);
 }
 
-/* Landing Main Content */
+/* Landing Content */
 .landingMainContainer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-inline: 3rem;
   height: 80vh;
-  align-items: center;
   flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .landingMainContainer > div:nth-child(1) {
@@ -109,32 +113,129 @@
   transform: scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ========================= */
+/* RESPONSIVE DESIGN SECTION */
+/* ========================= */
+
+/* Tablets and small laptops */
+@media (max-width: 1024px) {
   .landingMainContainer {
     flex-direction: column;
     text-align: center;
-    gap: 2rem;
+    height: auto;
+    padding: 2rem 1rem;
   }
 
   .landingMainContainer > div:nth-child(1) {
-    max-width: 90%;
+    max-width: 80%;
+  }
+
+  .landingMainContainer > div:nth-child(1) h1 {
+    font-size: 3rem;
+  }
+
+  .glassNav h2 {
+    font-size: 2.2rem;
+  }
+
+  .glassNav .navlist {
+    font-size: 1.3rem;
+    gap: 1.5rem;
+  }
+
+  .landingMainContainer > div:nth-child(2) img {
+    height: 50vh;
+  }
+}
+
+/* Tablets (portrait) and large phones */
+@media (max-width: 768px) {
+  .glassNav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+  }
+
+  .glassNav h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .glassNav .navlist {
+    gap: 1rem;
+    font-size: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .landingMainContainer {
+    text-align: center;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) {
+    max-width: 95%;
+    font-size: 1.4rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) h1 {
+    font-size: 2.4rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) div[role="button"] a {
+    font-size: 1.2rem;
   }
 
   .landingMainContainer > div:nth-child(2) img {
     height: 40vh;
   }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .glassNav {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+  }
 
   .glassNav h2 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .glassNav .navlist {
-    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .landingMainContainer {
+    padding: 1rem 0.5rem;
     gap: 1.5rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) {
+    font-size: 1.2rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) h1 {
+    font-size: 2rem;
+  }
+
+  .landingMainContainer > div:nth-child(1) div[role="button"] {
+    padding: 0.8rem 1.6rem;
+  }
+
+  .landingMainContainer > div:nth-child(2) img {
+    height: 30vh;
+    width: 90%;
+    border-radius: 20px;
   }
 }
 
+/* Image Section (Optional Reuse) */
 .imageSection {
   display: flex;
   flex-direction: column;
@@ -171,6 +272,7 @@
   background: linear-gradient(90deg, #ff9f1c, #ff4040);
   transform: scale(1.05);
 }
+
 
 
 

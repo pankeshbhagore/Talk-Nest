@@ -10,14 +10,21 @@
   --shadow-color: rgba(17, 16, 16, 0.5);
 }
 
+/* ============================== */
+/* 🎨 MAIN CONTAINER STYLING */
+/* ============================== */
 .historyContainer {
   padding: 30px;
   min-height: 100vh;
   background: var(--bg-gradient);
   font-family: 'Poppins', sans-serif;
   color: var(--text-light);
+  transition: all 0.3s ease;
 }
 
+/* ============================== */
+/* 🔍 TOP BAR & SEARCH SECTION */
+/* ============================== */
 .topBar {
   display: flex;
   align-items: center;
@@ -36,35 +43,54 @@
   color: var(--text-light);
 }
 
+/* MUI Field Customization */
 .MuiOutlinedInput-root {
   background: rgba(223, 226, 232, 0.1);
   border-radius: 12px;
-  fieldset {
-    border-color: rgba(231, 221, 221, 0.2);
-  }
-  &:hover fieldset {
-    border-color: var(--primary-color);
-  }
 }
 
+.MuiOutlinedInput-root fieldset {
+  border-color: rgba(231, 221, 221, 0.2);
+}
+
+.MuiOutlinedInput-root:hover fieldset {
+  border-color: var(--primary-color);
+}
+
+/* Creator Filter Dropdown */
 .creatorFilter {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   color: #fff;
   min-width: 150px;
   padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
 }
 
 .creatorFilter select {
   color: #fff;
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
+.creatorFilter:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================== */
+/* 🧩 HISTORY CARD GRID */
+/* ============================== */
 .cardsWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  animation: fadeInUp 1s ease;
 }
 
+/* Individual Cards */
 .historyCard {
   background: var(--card-bg);
   backdrop-filter: blur(15px);
@@ -72,6 +98,8 @@
   border-radius: 1rem;
   box-shadow: 0 5px 20px var(--shadow-color);
   transition: all 0.3s ease-in-out;
+  padding: 20px;
+  animation: fadeInUp 0.8s ease-in-out;
 }
 
 .historyCard:hover {
@@ -81,11 +109,15 @@
   box-shadow: 0 10px 30px var(--shadow-color), 0 0 15px var(--primary-color);
 }
 
+/* Highlight Current User’s Meeting */
 .currentUserMeeting {
   border: 2px solid #050707 !important;
   box-shadow: 0 0 20px #013604 !important;
 }
 
+/* ============================== */
+/* 🧾 CARD CONTENT STYLING */
+/* ============================== */
 .cardHeader {
   display: flex;
   justify-content: space-between;
@@ -98,14 +130,18 @@
   font-size: 1.2rem;
   color: var(--primary-color);
   text-shadow: 0 0 8px var(--primary-color);
+  word-break: break-word;
 }
 
-.meetingDate, .meetingDuration, .meetingOwner {
+.meetingDate, 
+.meetingDuration, 
+.meetingOwner {
   font-size: 0.9rem;
   color: var(--text-muted);
   margin-top: 4px;
 }
 
+/* Icon Buttons */
 .MuiIconButton-root {
   transition: all 0.2s ease-in-out;
 }
@@ -116,6 +152,9 @@
   text-shadow: 0 0 10px var(--secondary-color);
 }
 
+/* ============================== */
+/* ⚙️ BUTTONS */
+/* ============================== */
 .topBar Button {
   background: var(--primary-color);
   color: #000;
@@ -131,17 +170,7 @@
   box-shadow: 0 0 15px var(--secondary-color);
 }
 
-.noHistory {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 300px;
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  animation: fadeInUp 1.5s ease-in-out;
-}
-
+/* Load More Button */
 .loadMoreBtn {
   margin: 20px auto;
   display: block;
@@ -158,18 +187,127 @@
   box-shadow: 0 0 15px var(--secondary-color);
 }
 
+/* No History Placeholder */
+.noHistory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+/* Animation */
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(15px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
-  .cardsWrapper {
-    grid-template-columns: 1fr;
+/* ============================== */
+/* 📱 RESPONSIVE BREAKPOINTS */
+/* ============================== */
+
+/* Tablets (Portrait + Landscape) */
+@media (max-width: 1024px) {
+  .historyContainer {
+    padding: 20px;
   }
+
   .topBar {
     flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .creatorFilter {
+    width: 100%;
+    text-align: center;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+
+  .cardsWrapper {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 15px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+  .historyContainer {
+    padding: 15px;
+  }
+
+  .topBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .searchBox input {
+    font-size: 0.95rem;
+  }
+
+  .creatorFilter select {
+    font-size: 0.9rem;
+  }
+
+  .cardsWrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .meetingCode {
+    font-size: 1rem;
+  }
+
+  .meetingDate, 
+  .meetingDuration, 
+  .meetingOwner {
+    font-size: 0.85rem;
+  }
+
+  .loadMoreBtn {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .historyContainer {
+    padding: 10px;
+  }
+
+  .topBar {
+    gap: 8px;
+  }
+
+  .cardsWrapper {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .historyCard {
+    padding: 15px;
+  }
+
+  .meetingCode {
+    font-size: 0.95rem;
+  }
+
+  .loadMoreBtn {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+
+  .noHistory {
+    font-size: 1rem;
   }
 }
 

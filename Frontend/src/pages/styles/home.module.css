@@ -3,11 +3,17 @@
   --secondary: #2575fc;
 }
 
+/* Base */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+  overflow-x: hidden;
 }
 
+/* ===================== */
+/* 🔝 NAVBAR */
+/* ===================== */
 .navBar {
   display: flex;
   justify-content: space-between;
@@ -16,33 +22,60 @@ body {
   background: linear-gradient(90deg, var(--primary), var(--secondary));
   color: white;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .brand h2 {
   margin: 0;
   font-weight: 600;
+  font-size: 1.8rem;
 }
 
-.navActions button, .navActions .MuiIconButton-root {
+.navActions {
+  display: flex;
+  align-items: center;
+}
+
+.navActions button, 
+.navActions .MuiIconButton-root {
   margin-left: 15px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
+.navActions button:hover, 
+.navActions .MuiIconButton-root:hover {
+  background: rgba(255,255,255,0.35);
+  transform: scale(1.05);
+}
+
+/* ===================== */
+/* 💻 MAIN MEETING CONTAINER */
+/* ===================== */
 .meetContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   padding: 50px;
   background: linear-gradient(135deg, #f6d365, #fda085);
   min-height: calc(100vh - 70px);
+  gap: 30px;
+  transition: all 0.3s ease;
 }
 
 .leftPanel {
   flex: 1;
-  min-width: 350px;
+  min-width: 320px;
   background: rgba(255,255,255,0.2);
   backdrop-filter: blur(15px);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.8s ease;
 }
 
 .rightPanel {
@@ -50,13 +83,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 350px;
+  min-width: 320px;
+  animation: fadeInUp 1s ease;
 }
 
 .rightPanel img {
   max-width: 80%;
   border-radius: 20px;
   animation: float 5s ease-in-out infinite;
+  transition: all 0.4s ease;
+}
+
+.rightPanel img:hover {
+  transform: scale(1.05);
 }
 
 @keyframes float {
@@ -64,6 +103,14 @@ body {
   50% { transform: translateY(-20px); }
 }
 
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== */
+/* 📋 MEETING INPUTS & LIST */
+/* ===================== */
 .meetingInput {
   display: flex;
   gap: 10px;
@@ -71,13 +118,49 @@ body {
   flex-wrap: wrap;
 }
 
+.meetingInput input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.meetingInput button {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.meetingInput button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* ===================== */
+/* 🕒 RECENT MEETINGS */
+/* ===================== */
 .recentMeetings {
   margin-top: 30px;
+}
+
+.recentMeetings h3 {
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #333;
 }
 
 .recentMeetings ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .recentItem {
@@ -96,6 +179,108 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+
+/* ===================== */
+/* 📱 RESPONSIVE DESIGN */
+/* ===================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .meetContainer {
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .leftPanel, .rightPanel {
+    width: 90%;
+  }
+
+  .rightPanel img {
+    max-width: 70%;
+  }
+
+  .navBar {
+    padding: 10px 20px;
+  }
+
+  .brand h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .navBar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .navActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .meetContainer {
+    padding: 25px 15px;
+  }
+
+  .leftPanel, .rightPanel {
+    width: 100%;
+    padding: 25px;
+  }
+
+  .rightPanel img {
+    max-width: 90%;
+  }
+
+  .meetingInput {
+    flex-direction: column;
+  }
+
+  .meetingInput input, .meetingInput button {
+    width: 100%;
+  }
+
+  .recentMeetings h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .brand h2 {
+    font-size: 1.4rem;
+  }
+
+  .navBar {
+    padding: 10px 12px;
+  }
+
+  .meetContainer {
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  .leftPanel, .rightPanel {
+    padding: 20px;
+  }
+
+  .meetingInput button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .recentItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
+
 
 
 

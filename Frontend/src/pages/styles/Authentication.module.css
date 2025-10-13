@@ -1,3 +1,7 @@
+/* =============================== */
+/* 🎨 AUTHENTICATION PAGE STYLES   */
+/* =============================== */
+
 .authContainer {
   height: 100vh;
   width: 100vw;
@@ -8,6 +12,7 @@
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
 
+/* LEFT SECTION (Background Image / Visual Side) */
 .authLeft {
   flex: 7;
   background-size: cover;
@@ -15,6 +20,7 @@
   position: relative;
   overflow: hidden;
 }
+
 .authLeft::after {
   content: "";
   position: absolute;
@@ -24,6 +30,7 @@
   border-radius: 1rem;
 }
 
+/* RIGHT SECTION (Form Side) */
 .authRight {
   flex: 3;
   display: flex;
@@ -32,8 +39,10 @@
   position: relative;
   background: rgba(0,0,0,0.05);
   backdrop-filter: blur(10px);
+  padding: 1rem;
 }
 
+/* LOGIN/REGISTER CARD */
 .authPaper {
   padding: 50px 35px;
   border-radius: 25px;
@@ -49,11 +58,13 @@
   z-index: 2;
   transition: all 0.4s ease;
 }
+
 .authPaper:hover {
   transform: translateY(-5px);
   box-shadow: 0 35px 60px rgba(0,0,0,0.6);
 }
 
+/* AVATAR ICON */
 .authAvatar {
   background: linear-gradient(135deg, #ff6ec7, #ff1c68);
   margin: 0 auto;
@@ -62,10 +73,12 @@
   box-shadow: 0 5px 20px rgba(255,28,104,0.5);
   transition: all 0.3s ease;
 }
+
 .authAvatar:hover {
   transform: rotate(10deg) scale(1.1);
 }
 
+/* TITLE */
 .authTitle {
   font-weight: 800;
   font-size: 1.8rem;
@@ -75,11 +88,14 @@
   text-shadow: 1px 2px 10px rgba(0,0,0,0.5);
 }
 
+/* TOGGLE BUTTONS (LOGIN / SIGNUP) */
 .authToggleButtons {
   display: flex;
   justify-content: center;
   margin: 20px 0 30px 0;
+  flex-wrap: wrap;
 }
+
 .authToggleButtons button {
   font-weight: 600;
   text-transform: uppercase;
@@ -90,17 +106,19 @@
   padding: 6px 18px;
   transition: all 0.3s ease;
 }
+
 .authToggleButtons button.MuiButton-contained {
   background: #ff1c68;
   color: #fff;
   box-shadow: 0 5px 15px rgba(255,28,104,0.4);
 }
+
 .authToggleButtons button.MuiButton-contained:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 10px 25px rgba(255,28,104,0.5);
 }
 
-/* TextField Styling Fix */
+/* TEXT FIELD STYLING */
 .authTextField {
   margin-top: 15px;
   border-radius: 12px;
@@ -108,18 +126,19 @@
   background: rgba(255,255,255,0.05);
   transition: all 0.3s ease;
 }
+
 .authTextField input {
   color: #fff !important;
   padding: 14px 12px;
   background: transparent !important;
 }
 
-/* Floating Label Fix */
 .authTextField label {
   color: rgba(255,255,255,0.7) !important;
   font-weight: 500;
   transition: all 0.3s ease !important;
 }
+
 .authTextField .Mui-focused label,
 .authTextField label.Mui-focused {
   color: #ff6ec7 !important;
@@ -131,10 +150,12 @@
 .authTextField:hover {
   background: rgba(255,255,255,0.1);
 }
+
 .authTextField input:focus {
   border-bottom: 2px solid #ff1c68 !important;
 }
 
+/* ERROR MESSAGE */
 .authError {
   color: #ffeb3b;
   font-weight: 600;
@@ -143,6 +164,7 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
+/* SUBMIT BUTTON */
 .authButton {
   margin-top: 25px;
   background: linear-gradient(135deg, #ff6ec7, #ff1c68);
@@ -155,11 +177,13 @@
   box-shadow: 0 8px 25px rgba(255,28,104,0.4);
   transition: all 0.4s ease;
 }
+
 .authButton:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 35px rgba(255,28,104,0.6);
 }
 
+/* Background Glow Animation */
 .authPaper::before {
   content: "";
   position: absolute;
@@ -172,10 +196,105 @@
   border-radius: 50%;
   z-index: 0;
 }
+
 @keyframes rotateBG {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* =============================== */
+/* 📱 RESPONSIVE DESIGN FIXES      */
+/* =============================== */
+
+/* For Tablets and Medium Screens */
+@media (max-width: 1024px) {
+  .authContainer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .authLeft {
+    flex: none;
+    height: 45vh;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .authRight {
+    flex: none;
+    height: auto;
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  .authPaper {
+    max-width: 400px;
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 768px) {
+  .authContainer {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .authLeft {
+    display: none; /* Hide image section on smaller screens */
+  }
+
+  .authRight {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  }
+
+  .authPaper {
+    max-width: 90%;
+    padding: 40px 25px;
+  }
+
+  .authTitle {
+    font-size: 1.5rem;
+  }
+
+  .authButton {
+    font-size: 0.9rem;
+    padding: 10px 0;
+  }
+
+  .authToggleButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* For Small Phones */
+@media (max-width: 480px) {
+  .authPaper {
+    max-width: 95%;
+    padding: 30px 20px;
+  }
+
+  .authAvatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .authTitle {
+    font-size: 1.3rem;
+  }
+
+  .authButton {
+    font-size: 0.85rem;
+  }
+
+  .authTextField input {
+    padding: 12px 10px;
+  }
+}
+
 
 
 
